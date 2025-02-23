@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    --primary-color:#6741d9;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: "Yrsa", serif;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+}
+
+.wrapper {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15rem);
+    gap: 15px;
+}
+
+.wrapper > li {
+    height: 15rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
+    border-radius: 0.5rem;
+    padding: 10px 20px;
+}
+
+.add-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.add-card:hover {
+   background-color: var(--primary-color);
+   color: #ffffff;
+}
+
+.add-card:hover .icon {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.add-card:hover p {
+    color: #ffffff;
+}
+
+.add-card .icon {
+    color: var(--primary-color);
+    height: 100px;
+    line-height: 110px;
+    width: 100px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px dotted var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.add-card p {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note .details p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted #dbd8d8;
+}
+
+.note .details span {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.note .details-footer {
+    color: var(--primary-color);
+    border-top: 1px dotted #dbd8d8;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.settings {
+    cursor: pointer;
+    position: relative;
+}
+
+.settings:hover ul {
+    transform: scale(1);
+}
+
+.settings > ul {
+    transform: scale(0);
+    transition: all 0.2s ease-in;
+    transform-origin: bottom right;
+    padding: 0;
+    position: absolute;
+    background-color: #ffffff;
+    bottom: 0;
+    right: -5px;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.settings .menu li {
+    height: 25px;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu li:hover {
+    background-color: #dbd8d8;
+   
+}
+
+.menu i {
+    margin-right: 1rem;
+}
+
+
+.model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.model .model-box {
+background-color: #ffffff;
+height: auto;
+border-radius: 0.5rem;
+width: 400px;
+}
+
+.model-content {
+    padding: 1.5rem;
+}
+
+
+.model-content header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+
+.model-content header p {
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.model-content header i {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.model-content header i:hover {
+    color: var(--primary-color);
+}
+
+.model-content main form {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.model-content main input, .model-content main textarea  {
+    font-size: 1.2rem;
+    font-family: "Yrsa", serif;
+    width: 100%;
+    height: 25px;
+    padding: 20px 10px;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid #797272;
+    margin: 10px 0;
+    box-sizing:border-box;
+}
+
+.model-content main textarea {
+    padding: 10px 10px;
+    resize: none;
+    overflow: hidden;
+    height: 100px !important;
+}
+
+.model-content main button {
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 500;
+    padding: 15px 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+}
+
+.model-content main button:hover {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.model-content main fieldset {
+    width: 100%;
+    color: #6741d9;
+}
+
+
+
+
