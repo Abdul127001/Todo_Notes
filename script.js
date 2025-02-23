@@ -27,7 +27,7 @@ window.onclick = function(event) {
 
 let ShowNotes = () => {
     document.querySelectorAll('.note').forEach(note=>note.remove());
-    notes.map((note)=>{
+    notes.map((note,id)=>{
         let New_Note = ` <li class="note">
                 <div class="details">
                     <p>${note.title}</p>
@@ -36,9 +36,9 @@ let ShowNotes = () => {
                 <div class="details-footer">
                     <span>${note.date}</span>
                     <div class="settings">
-                        <i class="fa-solid fa-ellipsis"></i>
+                        <i class="fa-solid fa-ellipsis" onclick="ShowSettings(this)"></i>
                         <ul class="menu">
-                            <li><i class="fa-solid fa-pen-to-square" onclick="Edit(this)"></i>Edit</li>
+                            <li><i class="fa-solid fa-pen-to-square" onclick="ShowSettings(${id})"  ></i>Edit</li>
                             <li><i class="fa-solid fa-trash-can"></i>Delete</li>
                         </ul>
                     </div>
@@ -50,8 +50,13 @@ let ShowNotes = () => {
 
 ShowNotes();
 
-const Edit = (elem) => {
-console.log(elem);
+function ShowSettings(elem)  {
+elem.parentElement.classList.add("show");
+document.addEventListener("click", (e)=>{
+    if(e.target.tagName != "I" || e.target != elem) {
+        elem.parentElement.classList.remove("show");
+    }
+})
 }
 
 

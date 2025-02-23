@@ -101,7 +101,7 @@ body {
     position: relative;
 }
 
-.settings:hover ul {
+.settings.show ul {
     transform: scale(1);
 }
 
@@ -130,7 +130,6 @@ body {
 
 .menu li:hover {
     background-color: #dbd8d8;
-   
 }
 
 .menu i {
