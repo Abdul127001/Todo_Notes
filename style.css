@@ -161,6 +161,12 @@ width: 400px;
 .model, .model-box {
     opacity: 0;
     pointer-events: none;
+    transition: all 0.30s ease-in;
+}
+
+.model.show, .model.show .model-box {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .model-content {
