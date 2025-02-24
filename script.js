@@ -38,8 +38,8 @@ let ShowNotes = () => {
                     <div class="settings">
                         <i class="fa-solid fa-ellipsis" onclick="ShowSettings(this)"></i>
                         <ul class="menu">
-                            <li><i class="fa-solid fa-pen-to-square" onclick="ShowSettings(${id})"  ></i>Edit</li>
-                            <li><i class="fa-solid fa-trash-can"></i>Delete</li>
+                            <li><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+                            <li  onclick="DeleteNote(${id})"><i class="fa-solid fa-trash-can" ></i>Delete</li>
                         </ul>
                     </div>
                 </div>
@@ -57,6 +57,12 @@ document.addEventListener("click", (e)=>{
         elem.parentElement.classList.remove("show");
     }
 })
+}
+
+function DeleteNote(NoteId) {
+    notes.splice(NoteId,1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    ShowNotes();
 }
 
 
