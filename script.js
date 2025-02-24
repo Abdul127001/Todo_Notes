@@ -1,19 +1,24 @@
 const Add_Card = document.querySelector('.add-card'),
 Model_box = document.querySelector('.model'),
 Close_Model = document.querySelector('header i'),
-Add_Note = document.querySelector('main button'),
-Title = document.querySelector("#title"),
-Message = document.querySelector("textarea"),
+Add_Note = Model_box.querySelector('main button'),
+Title = Model_box.querySelector("#title"),
+HeaderTitle = Model_box.querySelector("header p"),
+Message = Model_box.querySelector("textarea"),
 Month_Arr = ["Jan","Feb","March","April","May","June","july","Aug","Sep","Oct","Nov","Dec"];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]"); 
-
+let isUpdate = false, updateId;
 
 
 Add_Card.addEventListener('click', () => {
+    Title.focus();
+    HeaderTitle.innerText = "ADD NEW NOTE";
+    Add_Note.innerText = "Submit";
     Model_box.classList.add('show');
 })
 
 Close_Model.addEventListener('click', () => {
+    isUpdate=false;
     Title.value="";
     Message.value="";
     Model_box.classList.remove('show');  
@@ -21,7 +26,7 @@ Close_Model.addEventListener('click', () => {
 
 window.onclick = function(event) {
     if (event.target == Model_box) {
-        Model_box.style.display = "none";
+        Model_box.classList.remove('show'); 
     }
 }
 
@@ -38,7 +43,7 @@ let ShowNotes = () => {
                     <div class="settings">
                         <i class="fa-solid fa-ellipsis" onclick="ShowSettings(this)"></i>
                         <ul class="menu">
-                            <li><i class="fa-solid fa-pen-to-square"></i>Edit</li>
+                            <li  onclick="EditNote(${id}, '${note.title}', '${note.message}')"><i class="fa-solid fa-pen-to-square"></i>Edit</li>
                             <li  onclick="DeleteNote(${id})"><i class="fa-solid fa-trash-can" ></i>Delete</li>
                         </ul>
                     </div>
@@ -60,9 +65,24 @@ document.addEventListener("click", (e)=>{
 }
 
 function DeleteNote(NoteId) {
+    let isConfirm = confirm("Are You Sure!!! Once Deleted you will lose your data.");
+if(!isConfirm) return;
     notes.splice(NoteId,1);
     localStorage.setItem("notes", JSON.stringify(notes));
     ShowNotes();
+}
+
+function EditNote(NoteId, title, desc) {
+
+isUpdate = true;
+updateId = NoteId;
+// console.log(NoteId, title, desc);
+Add_Card.click();
+Title.focus();
+HeaderTitle.innerText = "UPDATE A NOTE";
+Add_Note.innerText = "Update";
+Title.value = title;
+Message.value = desc;
 }
 
 
@@ -82,8 +102,12 @@ if(Title.value || Message.value) {
 
     // console.log(Details);
 
-   
-    notes.push(Details);
+   if(!isUpdate) {
+       notes.push(Details);
+   } else {
+    isUpdate = false;
+    notes[updateId] = Details;
+   }
     localStorage.setItem("notes", JSON.stringify(notes));
     Close_Model.click();
     ShowNotes();
