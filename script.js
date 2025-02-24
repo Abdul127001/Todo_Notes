@@ -34,8 +34,8 @@ let ShowNotes = () => {
     document.querySelectorAll('.note').forEach(note=>note.remove());
     notes.map((note,id)=>{
         let New_Note = ` <li class="note">
+            <p>${note.title}</p>
                 <div class="details">
-                    <p>${note.title}</p>
                     <span>${note.message}</span>
                 </div>
                 <div class="details-footer">

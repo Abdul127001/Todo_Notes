@@ -13,11 +13,31 @@ body {
     background-color: #f1f1f1;
 }
 
+.top-header {
+    text-align: center;
+    background-color: var(--primary-color);
+    width: 100%;
+    padding: 0.1rem 0;
+    color: #ffffff;
+}
+
+Footer {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    text-align: center;
+    color: #ffffff;
+}
+
 .wrapper {
-    margin: 2rem;
+    width: 80%;
+    margin: 2rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, 15rem);
-    gap: 15px;
+    gap: 20px;
+    place-content: center;
 }
 
 .wrapper > li {
@@ -75,22 +95,31 @@ body {
     justify-content: space-between;
 }
 
-.note .details p {
+.note  p {
     font-size: 1.2rem;
     font-weight: 600;
-    padding-bottom: 1rem;
+    padding-bottom: 0.1rem;
     border-bottom: 1px dotted #dbd8d8;
 }
 
 .note .details span {
+   font-size: 1rem;  
+}
+
+.note .details {
     text-align: justify;
-    font-size: 1rem;
+    height: 15rem;
+    white-space: wrap; 
+    overflow: auto;
+    text-overflow: ellipsis; 
+    overflow-y: auto;
+    scrollbar-width:none;
 }
 
 .note .details-footer {
     color: var(--primary-color);
     border-top: 1px dotted #dbd8d8;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
