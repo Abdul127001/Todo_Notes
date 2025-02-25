@@ -34,6 +34,7 @@ Footer {
 .wrapper {
     width: 80%;
     margin: 2rem auto;
+    margin-bottom: 5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, 15rem);
     gap: 20px;
